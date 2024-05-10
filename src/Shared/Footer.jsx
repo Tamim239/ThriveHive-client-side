@@ -44,7 +44,7 @@ export const Footer = () => {
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                 </p>
             </div>
-            <ul className="items-center justify-center mt-8 space-y-5 flex space-x-4 space-y-0">
+            <ul className="flex items-center justify-center mt-8 space-x-4 ">
                 {
                     footerNavs.map((item, idx) => (
                         <li className=" hover:text-gray-800" key={idx}>
