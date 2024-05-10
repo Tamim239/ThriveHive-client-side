@@ -1,15 +1,43 @@
 import { Link } from 'react-router-dom'
 import job from '../../assets/job.png'
-import register from '../../assets/register.jpg'
+import registerImage from '../../assets/register.jpg'
+import { useForm } from "react-hook-form"
+import { useState } from 'react'
 
 export const Register = () => {
+  const [handleError, setHandleError] = useState("");
+
+  const {
+    register,
+    handleSubmit,
+    // watch,
+    formState: { errors },
+  } = useForm();
+
+
+  const onSubmit = (data) =>{
+    const { name, email, password, password_confirmation, photoURL} = data;
+    console.log(name, email, password, password_confirmation, photoURL);
+    setHandleError('')
+    if (password.length < 6) {
+      return setHandleError("Ensure length must be at least 6 character");
+    }
+    if (!/[A-Z]/.test(password)) {
+      return setHandleError("Ensure at least one uppercase letter exists");
+    }
+    if (!/[a-z]/.test(password)) {
+      return setHandleError("Ensure at least one lowercase letter exists");
+    }
+
+  }
+
   return (
     <section className="bg-white my-5 md:my-10 md:px-4 mx-auto">
   <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
     <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
       <img
         alt=""
-        src={register}
+        src={registerImage}
         className="absolute inset-0 h-full w-full object-cover opacity-80"
       />
 
@@ -62,20 +90,43 @@ export const Register = () => {
           </p>
         </div>
 
-        <form action="#" className="mt-8 grid grid-cols-6 gap-6">
+        <form 
+         onSubmit={handleSubmit(onSubmit)}
+        className="mt-8 grid grid-cols-6 gap-6">
           <h1 className='col-span-full text-2xl font-bold text-center'>Sign Up Now</h1>
-          <div className="col-span-6">
-            <label htmlFor="FirstName" className="block text-sm font-medium text-gray-700">
-              First Name
+          <div className="col-span-6 sm:col-span-3">
+            <label htmlFor="Name" className="block text-sm font-medium text-gray-700">
+             Name
             </label>
 
             <input
               type="text"
-              id="FirstName"
-              name="first_name"
-              placeholder='Your first Name'
+              id="Name"
+              {...register("name", { required: true })}
+              name="name"
+              placeholder='Your Name'
               className="mt-1 px-2 py-2 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             />
+            {errors.name && (
+            <span className="text-red-600">This name field is required</span>
+          )}
+          </div>
+          <div className="col-span-6 sm:col-span-3">
+            <label htmlFor="PhotoURL" className="block text-sm font-medium text-gray-700">
+             PhotoURL
+            </label>
+
+            <input
+              type="text"
+              id="photoURL"
+              {...register("photoURL", { required: true })}
+              name="photoURL"
+              placeholder='Photo URL here'
+              className="mt-1 px-2 py-2 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+            />
+            {errors.name && (
+            <span className="text-red-600">This name field is required</span>
+          )}
           </div>
 
           <div className="col-span-6">
@@ -84,10 +135,14 @@ export const Register = () => {
             <input
               type="email"
               id="Email"
+              {...register("email", { required: true })}
               name="email"
               placeholder='Enter Your Email'
               className="mt-1 px-2 py-2 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             />
+            {errors.email && (
+            <span className="text-red-600">This name field is required</span>
+          )}
           </div>
 
           <div className="col-span-6 sm:col-span-3">
@@ -96,10 +151,14 @@ export const Register = () => {
             <input
               type="password"
               id="Password"
+              {...register("password", { required: true })} 
               name="password"
               placeholder='Enter Your Password'
               className="mt-1 px-2 py-2 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             />
+            {errors.password && (
+            <span className="text-red-600">This name field is required</span>
+          )}
           </div>
 
           <div className="col-span-6 sm:col-span-3">
@@ -110,10 +169,20 @@ export const Register = () => {
             <input
               type="password"
               id="PasswordConfirmation"
+              {...register("password_confirmation", { required: true })} 
               name="password_confirmation"
               placeholder='Your Confirm Password'
               className="mt-1 px-2 py-2 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             />
+            {errors.password && (
+            <span className="text-red-600">This name field is required</span>
+          )}
+          {
+           handleError && (
+            <span className="text-red-600">
+              {handleError}
+            </span>
+          )} 
           </div>
 
           <div className="col-span-6">
@@ -149,7 +218,7 @@ export const Register = () => {
 
             <p className="mt-4 text-sm text-gray-500 sm:mt-0">
               Already have an account?
-              <Link to='/login' className="text-gray-700 underline">Log in</Link>.
+              <Link to='/login' className="text-gray-700 underline ml-1">Log in</Link>.
             </p>
           </div>
         </form>
