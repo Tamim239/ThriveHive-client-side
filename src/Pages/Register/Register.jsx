@@ -1,11 +1,17 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import job from '../../assets/job.png'
 import registerImage from '../../assets/register.jpg'
 import { useForm } from "react-hook-form"
 import { useState } from 'react'
+import toast from 'react-hot-toast'
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
+import { useAuth } from '../../Hook/useAuth'
 
 export const Register = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const [handleError, setHandleError] = useState("");
+  const {createUser, logOut, updateUser} = useAuth()
+  const navigate = useNavigate()
 
   const {
     register,
@@ -28,6 +34,27 @@ export const Register = () => {
     if (!/[a-z]/.test(password)) {
       return setHandleError("Ensure at least one lowercase letter exists");
     }
+    if(password !== password_confirmation){
+      return toast.error('password not Match')
+    }
+
+    createUser(email, password)
+    .then(res =>{
+      logOut()
+      console.log("successfully", res)
+      updateUser(name, photoURL)
+      .then(()=>{
+        toast.success('successfully registered')
+        setTimeout(() => {
+          navigate('/login')
+           }, 1000);
+         })
+    
+    })
+    .catch(() =>{
+       toast.error("email and password already used")
+    } )
+    
 
   }
 
@@ -131,7 +158,6 @@ export const Register = () => {
 
           <div className="col-span-6">
             <label htmlFor="Email" className="block text-sm font-medium text-gray-700"> Email </label>
-
             <input
               type="email"
               id="Email"
@@ -145,20 +171,32 @@ export const Register = () => {
           )}
           </div>
 
-          <div className="col-span-6 sm:col-span-3">
-            <label htmlFor="Password" className="block text-sm font-medium text-gray-700"> Password </label>
+          <div className="col-span-6 sm:col-span-3 relative" >
+            <label htmlFor="Password" className="block  text-sm font-medium text-gray-700"> Password </label>
 
             <input
-              type="password"
+             type={showPassword ? "text" : "password"}
               id="Password"
               {...register("password", { required: true })} 
               name="password"
               placeholder='Enter Your Password'
-              className="mt-1 px-2 py-2 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+              className=" mt-1 px-2 py-2 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             />
+             <span
+              className="absolute text-black right-0 mr-2 top-1/2 text-xl"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <IoMdEyeOff></IoMdEyeOff> : <IoMdEye></IoMdEye>}
+            </span>
             {errors.password && (
             <span className="text-red-600">This name field is required</span>
           )}
+          {
+           handleError && (
+            <span className="text-red-600">
+              {handleError}
+            </span>
+          )} 
           </div>
 
           <div className="col-span-6 sm:col-span-3">
@@ -177,18 +215,13 @@ export const Register = () => {
             {errors.password && (
             <span className="text-red-600">This name field is required</span>
           )}
-          {
-           handleError && (
-            <span className="text-red-600">
-              {handleError}
-            </span>
-          )} 
           </div>
 
           <div className="col-span-6">
             <label htmlFor="MarketingAccept" className="flex gap-4">
               <input
                 type="checkbox"
+                required
                 id="MarketingAccept"
                 name="marketing_accept"
                 className="size-5 rounded-md border-gray-200 bg-white shadow-sm"
