@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-
+import job from '../../assets/job.png'
 
 export const Login = () => {
   return (

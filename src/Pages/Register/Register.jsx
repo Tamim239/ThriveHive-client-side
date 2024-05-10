@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import job from '../../assets/job.png'
+import register from '../../assets/register.jpg'
 
 export const Register = () => {
   return (
@@ -8,7 +9,7 @@ export const Register = () => {
     <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
       <img
         alt=""
-        src="https://images.pexels.com/photos/6177639/pexels-photo-6177639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        src={register}
         className="absolute inset-0 h-full w-full object-cover opacity-80"
       />
 
@@ -23,8 +24,7 @@ export const Register = () => {
         </h2>
 
         <p className="mt-4 leading-relaxed text-white/90">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam dolorum aliquam,
-          quibusdam aperiam voluptatum.
+        Easily sort listings (e.g., by name, date) to find what interests you most and unlock exclusive features.
         </p>
       </div>
     </section>
@@ -63,6 +63,7 @@ export const Register = () => {
         </div>
 
         <form action="#" className="mt-8 grid grid-cols-6 gap-6">
+          <h1 className='col-span-full text-2xl font-bold text-center'>Sign Up Now</h1>
           <div className="col-span-6">
             <label htmlFor="FirstName" className="block text-sm font-medium text-gray-700">
               First Name
