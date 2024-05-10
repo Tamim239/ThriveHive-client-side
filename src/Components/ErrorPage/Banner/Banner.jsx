@@ -6,7 +6,7 @@ import image1 from '../../../assets/image4.jpg'
 export const Banner = () => {
 
     return (
-        <>
+        <div>
           <section className="py-10">
                 <div className="max-w-screen-xl mx-auto text-gray-600 gap-x-12 items-center justify-between overflow-hidden md:flex md:px-8">
                     <div className="flex-none space-y-5 px-4 sm:max-w-lg md:px-0 lg:max-w-xl">
@@ -40,12 +40,7 @@ export const Banner = () => {
                     </div>
                 </div>
                 <div className="mt-14 px-4 md:px-8">
-                    <p className="text-center text-sm text-gray-700 font-semibold">Trusted by the best companies</p>
-                   
-
-   
-    
- 
+                    <p className="text-center text-xl text-gray-700 font-semibold">Trusted by the best companies</p>
                     <div className="flex justify-center items-center flex-wrap gap-x-12 gap-y-6 mt-6">
                     <Marquee loop='infinite' speed={100} className="space-x-9">
                        <div className="mx-10">
@@ -66,6 +61,6 @@ export const Banner = () => {
                     </div>
                 </div>
             </section>
-        </>
+        </div>
     )
 }
