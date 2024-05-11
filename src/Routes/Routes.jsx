@@ -7,6 +7,7 @@ import { Register } from "../Pages/Register/Register";
 import { JobDetails } from "../Pages/JobDetails/JobDetails";
 import axios from "axios";
 import { Blogs } from "../Pages/Blogs/Blogs";
+import { AllJob } from "../Pages/AllJob/AllJob";
 
 
 
@@ -36,7 +37,11 @@ export const router = createBrowserRouter([
         {
           path: '/blogs',
          element: <Blogs></Blogs>
-        }
+        },
+        {
+          path: '/all-jobs',
+         element: <AllJob></AllJob>
+        },
       ],
     },
   ]);

@@ -2,7 +2,7 @@
 
 export const Blogs = () => {
   return (
-    <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+    <div className="px-4 py-8 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-10">
       <p className="mb-2 text-xs font-semibold tracking-wide text-gray-600 uppercase sm:text-center">
         10 May 2024
       </p>
@@ -162,42 +162,48 @@ export const Blogs = () => {
         </div>
       </div>
       <div className="flex justify-between items-center gap-6 my-10">
-           
-           <div>
-            <h1 className="text-center text-xl font-bold">Express js Code example</h1>
-            <p className="text-center">Express.js focuses on building web applications and APIs. It provides a flexible framework for handling HTTP requests and responses. Here's an example of a simple Express route handler:</p>
-              <div>
-                <p>  
-                  {`
-                  const express = require('express');
-                  const app = express();
-                  app.get('/', (req, res) => {
+        <div>
+          <h1 className="text-center text-xl font-bold underline">
+            Express js Code example
+          </h1>
+          <p className="text-center">
+            Express.js focuses on building web applications and APIs. It
+            provides a flexible framework for handling HTTP requests and
+            responses. Here's an example of a simple Express route handler:
+          </p>
+          <div className="space-y-2 font-bold mt-5">
+            <p>
+              {`const express = require('express');`}
+            </p>
+            <p>{`const app = express()`}</p>
+            <p>{` app.get('/', (req, res) => {
                     res.send('Hello from Express!');
-                  });
-                  app.listen(3000, () => console.log('Server listening on port 3000'));
-                  `}
-                </p>
-              </div>
-           </div>
-           <div>
-           <h1 className="text-center text-xl font-bold">Next js Code example</h1>
-            <p className="text-center">Next.js is a full-fledged framework for building server-rendered and statically generated web applications. It leverages React on the frontend and provides features like routing, data fetching, and server-side rendering. Here's an example of a simple Next.js page:</p>
-              <div>
-                <p>
-{`// pages/index.js
-
-import React from 'react';
-
-export default function HomePage() {
-  return (
-    <h1>Hello from Next.js!</h1>
-  );
-}
-`}
-                </p>
-              </div>
-           </div>
-
+                  })`}</p>
+            <p>{` app.listen(3000, () => console.log('Server listening on port 3000'));`}</p>
+          </div>
+        </div>
+        <div>
+          <h1 className="text-center text-xl font-bold underline">
+            Next js Code example
+          </h1>
+          <p className="text-center">
+            Next.js is a full-fledged framework for building server-rendered and
+            statically generated web applications. It leverages React on the
+            frontend and provides features like routing, data fetching, and
+            server-side rendering. Here's an example of a simple Next.js page:
+          </p>
+          <div className="space-y-2 font-bold mt-5">
+            <p>
+              {`pages/index.js`}
+            </p>
+            <p>{`import React from 'react';`}</p>
+            <p>{` export default function HomePage() {`}</p>
+              <p>
+              {`return (
+              <h1>Hello from Next.js!</h1> }`}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

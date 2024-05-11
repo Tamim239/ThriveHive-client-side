@@ -20,10 +20,10 @@ export const JobCard = ({ job }) => {
           {jobApplicantsNumber}
         </span>
         <div className="sm:flex sm:justify-between sm:gap-4 pt-8 space-y-3">
-          <div className="text-start">
-            <div className="flex items-center justify-between gap-10">
+          <div className="text-start w-full">
+            <div className="flex items-center justify-between  gap-5">
               <h1>Posted : {name}</h1>
-              <h2>{jobPostingDate}</h2>
+              <h2>{new Date(jobPostingDate).toLocaleDateString() }</h2>
             </div>
             <h3 className="text-xl font-bold text-gray-900 h-12">
               {jobTitle} ({category})
@@ -37,7 +37,7 @@ export const JobCard = ({ job }) => {
           </div>
           <div className="flex flex-col-reverse">
             <dt className="text-sm font-medium text-gray-600">Deadline</dt>
-            <dd className="text-base text-gray-800">{applicationDeadline}</dd>
+            <dd className="text-base text-gray-800">{new Date(applicationDeadline).toLocaleDateString() }</dd>
           </div>
           <div>
             <Link to={`/jobDetails/${_id}`} className="relative inline-flex items-center justify-center p-1 px-3 py-2 overflow-hidden font-medium text-[#F16E1E] transition duration-300 ease-out border-b-2 border-[#F16E1E] rounded-sm shadow-md group">
