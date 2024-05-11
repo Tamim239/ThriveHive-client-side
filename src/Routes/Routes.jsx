@@ -4,6 +4,8 @@ import { Home } from "../Pages/Home/Home";
 import { ErrorPage } from "../Components/ErrorPage/ErrorPage";
 import { Login } from "../Pages/Login/Login";
 import { Register } from "../Pages/Register/Register";
+import { JobDetails } from "../Pages/JobDetails/JobDetails";
+import axios from "axios";
 
 
 export const router = createBrowserRouter([
@@ -23,6 +25,11 @@ export const router = createBrowserRouter([
         {
           path: "/signUp",
           element: <Register />,
+        },
+        {
+          path: "/jobDetails/:id",
+          element: <JobDetails />,
+          loader: ({params}) => axios(`${import.meta.env.VITE_API_URL}/postJobs/${params.id}`)
         },
       ],
     },

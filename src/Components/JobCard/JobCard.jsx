@@ -1,33 +1,46 @@
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
+export const JobCard = ({ job }) => {
+  const {
+    _id,
+    applicationDeadline,
+    category,
+    jobApplicantsNumber,
+    jobPostingDate,
+    jobTitle,
+    name,
+    salaryRange,
+  } = job;
 
-export const JobCard = () => {
   return (
     <div>
-      <Link className="relative block overflow-hidden rounded-lg border border-gray-100 p-4 sm:p-4">
+      <div className="relative block overflow-hidden rounded-lg border border-gray-100 p-4 sm:p-4">
         <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
-        <span className="bg-[#F16E1E] p-2 px-4 rounded-full text-white absolute top-0 left-0 font-bold">5</span>
-        <div className="sm:flex sm:justify-between sm:gap-4 pt-8">
+        <span className="bg-[#F16E1E] p-2 px-4 rounded-full text-white absolute top-0 left-0 font-bold">
+          {jobApplicantsNumber}
+        </span>
+        <div className="sm:flex sm:justify-between sm:gap-4 pt-8 space-y-3">
           <div className="text-start">
-            <div className="flex justify-between gap-2">
-              <h1>Posted : Acme industries</h1>
-              <h2>20/05/2024</h2>
+            <div className="flex items-center justify-between gap-10">
+              <h1>Posted : {name}</h1>
+              <h2>{jobPostingDate}</h2>
             </div>
-            <h3 className="text-xl font-bold text-gray-900">
-              Building a SaaS product as a software developer
+            <h3 className="text-xl font-bold text-gray-900 h-12">
+              {jobTitle} ({category})
             </h3>
           </div>
         </div>
         <div className="mt-4 flex gap-4 sm:gap-6 justify-between">
           <div className="flex flex-col-reverse">
             <dt className="text-sm font-medium text-gray-600">Salary Range</dt>
-            <dd className="text-sm text-gray-800">$18 - $22 per hour</dd>
+            <dd className="text-sm text-gray-800">{salaryRange}</dd>
           </div>
           <div className="flex flex-col-reverse">
             <dt className="text-sm font-medium text-gray-600">Deadline</dt>
-            <dd className="text-base text-gray-800">31st June, 2021</dd>
+            <dd className="text-base text-gray-800">{applicationDeadline}</dd>
           </div>
           <div>
-            <Link className="relative inline-flex items-center justify-center p-1 px-3 py-2 overflow-hidden font-medium text-[#F16E1E] transition duration-300 ease-out border-b-2 border-[#F16E1E] rounded-sm shadow-md group">
+            <Link to={`/jobDetails/${_id}`} className="relative inline-flex items-center justify-center p-1 px-3 py-2 overflow-hidden font-medium text-[#F16E1E] transition duration-300 ease-out border-b-2 border-[#F16E1E] rounded-sm shadow-md group">
               <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-[#F16E1E] group-hover:translate-x-0 ease">
                 <svg
                   className="w-6 h-6"
@@ -51,7 +64,11 @@ export const JobCard = () => {
             </Link>
           </div>
         </div>
-      </Link>
+      </div>
     </div>
   );
 };
+
+JobCard.propTypes ={
+  job: PropTypes.object
+}
