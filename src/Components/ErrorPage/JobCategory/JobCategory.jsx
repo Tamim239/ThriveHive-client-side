@@ -33,7 +33,7 @@ export const JobCategory = () => {
           <TabPanel>
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {
-              data?.filter(onsite => onsite?.category === 'On-Site')?.map(job => <JobCard  key={job?._id} job={job}></JobCard>)
+              data?.filter(onsite => onsite?.category === 'On Site')?.map(job => <JobCard  key={job?._id} job={job}></JobCard>)
             }
            </div>
           </TabPanel>

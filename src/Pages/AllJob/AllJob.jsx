@@ -54,11 +54,11 @@ export const AllJob = () => {
                         <tr key={item?._id} className="divide-x">
                             <td className="px-6 py-4 whitespace-nowrap flex items-center gap-x-6">
                                 <span>{idx + 1}</span>
-                                {item?.jobTitle}
+                                {item?.job_title}
                             </td>
-                            <td className="px-6 py-4 whitespace-nowrap">{item?.jobPostingDate}</td>
-                            <td className="px-6 py-4 whitespace-nowrap">{item?.applicationDeadline}</td>
-                            <td className="px-6 py-4 whitespace-nowrap">{item?.salaryRange}</td>
+                            <td className="px-6 py-4 whitespace-nowrap">{item?.todayDate}</td>
+                            <td className="px-6 py-4 whitespace-nowrap">{item?.deadline}</td>
+                            <td className="px-6 py-4 whitespace-nowrap">${item?.min_price} - ${item?.max_price}</td>
                             <Link to={`/jobDetails/${item?._id}`} className="px-6 py-4 whitespace-nowrap">
                                 <button className="btn btn-primary">View Details</button>
                             </Link>

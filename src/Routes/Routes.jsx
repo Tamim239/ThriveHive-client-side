@@ -8,6 +8,10 @@ import { JobDetails } from "../Pages/JobDetails/JobDetails";
 import axios from "axios";
 import { Blogs } from "../Pages/Blogs/Blogs";
 import { AllJob } from "../Pages/AllJob/AllJob";
+import { AddJob } from "../Pages/AddJob/AddJob";
+import { PrivateRoute } from "./PrivateRoute";
+import { MyJobs } from "../Pages/MyJobs/MyJobs";
+import { UpdateJobs } from "../Pages/UpdateJobs/UpdateJobs";
 
 
 
@@ -41,6 +45,19 @@ export const router = createBrowserRouter([
         {
           path: '/all-jobs',
          element: <AllJob></AllJob>
+        },
+        {
+          path: '/add-job',
+         element: <PrivateRoute><AddJob></AddJob></PrivateRoute>
+        },
+        {
+          path: '/my-jobs',
+         element: <PrivateRoute><MyJobs></MyJobs></PrivateRoute>
+        },
+        {
+          path: '/update/:id',
+         element: <PrivateRoute><UpdateJobs></UpdateJobs></PrivateRoute>,
+         loader: ({params}) => axios(`${import.meta.env.VITE_API_URL}/postJobs/${params.id}`)
         },
       ],
     },
