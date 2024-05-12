@@ -9,7 +9,8 @@ export const JobCard = ({ job }) => {
         todayDate,
         deadline,
         category, min_price, max_price,
-        buyer
+        buyer,
+        application_count
   } = job;
 
 
@@ -18,7 +19,7 @@ export const JobCard = ({ job }) => {
       <div className="relative block overflow-hidden rounded-lg border border-gray-100 p-4 sm:p-4">
         <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
         <span className="bg-[#F16E1E] p-2 px-4 rounded-full text-white absolute top-0 left-0 font-bold">
-          {}
+          {application_count || 0}
         </span>
         <div className="sm:flex sm:justify-between sm:gap-4 pt-8 space-y-3">
           <div className="text-start w-full">

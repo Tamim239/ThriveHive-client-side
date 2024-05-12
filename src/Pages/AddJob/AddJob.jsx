@@ -31,6 +31,7 @@ export const AddJob = () => {
             email: user?.email,
             name: user?.displayName,
           },
+          application_count: 0,
     }
     console.log(jobData)
 

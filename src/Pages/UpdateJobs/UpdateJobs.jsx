@@ -33,7 +33,7 @@ export const UpdateJobs = () => {
     axios.put(`${import.meta.env.VITE_API_URL}/postJobs/${data?._id}`, jobData)
     .then(res =>{
         console.log(res.data)
-        if(res?.data?.upsertedCount > 0){
+        if(res?.data?.modifiedCount > 0){
            toast.success("you have successfully updated")
         }
     })

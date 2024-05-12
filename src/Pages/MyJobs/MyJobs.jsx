@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 export const MyJobs = () => {
     const {data, refetch} = usePostJobs()
 
+
     const handleDelete = (id) =>{
         console.log('yes', id)
 

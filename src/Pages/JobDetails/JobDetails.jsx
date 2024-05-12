@@ -33,7 +33,7 @@ export const JobDetails = () => {
     const currentDate = new Date().toLocaleDateString();
     const applicantDeadline = new Date(deadline).toLocaleDateString()
     console.log(currentDate, applicantDeadline)
-    if(currentDate >= applicantDeadline){
+    if(currentDate > applicantDeadline){
       return toast.error('The Deadline is over')
     }
     document.getElementById("my_modal_3").showModal();
@@ -43,9 +43,14 @@ export const JobDetails = () => {
     e.preventDefault();
     const form =  e.target;
     const resume = form.resume.value;
-    console.log(resume)
+    const email = user?.email;
+    const buyer_email = buyer?.email
+    const applyData = {
+      resume, email, buyer_email
+    }
+    console.log(applyData)
+    
   }
-  
   return (
     <div>
       <section className="bg-white dark:bg-gray-900">
