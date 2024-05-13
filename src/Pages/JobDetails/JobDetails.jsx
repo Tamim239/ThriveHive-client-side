@@ -2,6 +2,7 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import { useAuth } from "../../Hook/useAuth";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
+import axios from "axios";
 
 export const JobDetails = () => {
   const { user } = useAuth();
@@ -18,6 +19,7 @@ export const JobDetails = () => {
   }, [user, navigate]);
 
   const {
+    _id,
     job_title,
     todayDate,
     deadline,
@@ -44,11 +46,24 @@ export const JobDetails = () => {
     const form =  e.target;
     const resume = form.resume.value;
     const email = user?.email;
-    const buyer_email = buyer?.email
+    const name = user?.displayName  ;
+    const buyer_email = buyer?.email;
+    const jobId = _id;
+
     const applyData = {
-      resume, email, buyer_email
+      resume, email, name, buyer_email, jobId, job_title,
+      todayDate,
+      deadline,
+      category, photoURL, min_price, max_price, description
     }
     console.log(applyData)
+    axios.post(`${import.meta.env.VITE_API_URL}/jobList`, applyData)
+    .then(res=>{
+      console.log(res.data)
+      if(res?.data?.insertedId){
+          toast.success('you have applied successfully');
+      }
+    })
     
   }
   return (
