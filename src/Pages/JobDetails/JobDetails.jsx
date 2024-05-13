@@ -1,22 +1,22 @@
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { useAuth } from "../../Hook/useAuth";
 import toast from "react-hot-toast";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import axios from "axios";
 
 export const JobDetails = () => {
   const { user } = useAuth();
   const { data } = useLoaderData();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   console.log(data);
 
-  useEffect(() => {
-    if (!user) {
-      navigate("/login");
-      // return toast.error("You have to login first");
-    }
-  }, [user, navigate]);
+  // useEffect(() => {
+  //   if (!user) {
+  //     navigate("/login");
+  //     // return toast.error("You have to login first");
+  //   }
+  // }, [user, navigate]);
 
   const {
     _id,

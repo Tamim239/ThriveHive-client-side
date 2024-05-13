@@ -36,7 +36,7 @@ export const router = createBrowserRouter([
         },
         {
           path: "/jobDetails/:id",
-          element: <JobDetails />,
+          element: <PrivateRoute><JobDetails /></PrivateRoute>,
           loader: ({params}) => axios(`${import.meta.env.VITE_API_URL}/postJobs/${params.id}`)
         },
         {

@@ -3,12 +3,14 @@ import { useAuth } from "../Hook/useAuth"
 import PropTypes from 'prop-types';
 import { InfinitySpin } from 'react-loader-spinner'
 
+
 export const PrivateRoute = ({children}) => {
     const {user, loading} = useAuth()
     const location = useLocation()
     if(user){
         return children
     }
+
     if(loading) {
          return <div className="flex justify-center h-96 items-center"><InfinitySpin
          visible={true}

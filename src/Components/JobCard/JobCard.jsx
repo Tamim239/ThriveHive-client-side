@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
+import { useAuth } from "../../Hook/useAuth";
+import toast from 'react-hot-toast'
+
 export const JobCard = ({ job }) => {
+  const {user} = useAuth()
 
      
   const {
@@ -12,6 +16,12 @@ export const JobCard = ({ job }) => {
         buyer,
         application_count
   } = job;
+
+  const handleViewDetails = () =>{
+    if(!user){
+        toast.error("you have to login first")
+    }
+  }
 
 
   return (
@@ -42,7 +52,7 @@ export const JobCard = ({ job }) => {
             <dd className="text-base text-gray-800">{deadline}</dd>
           </div>
           <div>
-            <Link to={`/jobDetails/${_id}`} className="relative inline-flex items-center justify-center p-1 px-3 py-2 overflow-hidden font-medium text-[#F16E1E] transition duration-300 ease-out border-b-2 border-[#F16E1E] rounded-sm shadow-md group">
+            <Link onClick={handleViewDetails} to={`/jobDetails/${_id}`} className="relative inline-flex items-center justify-center p-1 px-3 py-2 overflow-hidden font-medium text-[#F16E1E] transition duration-300 ease-out border-b-2 border-[#F16E1E] rounded-sm shadow-md group">
               <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-[#F16E1E] group-hover:translate-x-0 ease">
                 <svg
                   className="w-6 h-6"

@@ -42,7 +42,7 @@ export const AppliedJobs = () => {
       <div className="flex justify-center h-96 items-center">
         <InfinitySpin visible={true} width="200" color="#4fa94d" />
       </div>
-    );
+    )
   }
 
   console.log(jobData);
@@ -62,7 +62,7 @@ export const AppliedJobs = () => {
         />
       </svg>
       <select onChange={handleDropDown} className="w-full px-3 py-2 text-sm text-gray-600 bg-white border rounded-lg shadow-sm outline-none appearance-none focus:ring-offset-2 focus:ring-indigo-600 focus:ring-2">
-        <option></option>
+        <option defaultValue="please selected"></option>
         <option value="On Site">On Site</option>
         <option value="Remote">Remote</option>
         <option value="Hybrid">Hybrid</option>
