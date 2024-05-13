@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom"
-// import { usePostJobs } from "../../Hook/usePostJobs"
 import axios from "axios"
-// import toast from "react-hot-toast"
 import Swal from "sweetalert2";
 import { useAuth } from "../../Hook/useAuth";
 import { useQuery } from "@tanstack/react-query";
@@ -9,18 +7,15 @@ import { InfinitySpin } from "react-loader-spinner";
 
 
 export const MyJobs = () => {
-    // const {data, refetch} = usePostJobs()
     const {user} = useAuth()
 
-
-    // const getData = async () => {
-        
-    //   }
 
       const{data = [], isLoading, refetch } = useQuery({
       queryKey: ['jobEmail', user?.email],
        queryFn: async() => {
-        const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/jobEmail/${user?.email}`)
+        const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/jobEmail/${user?.email}`,{
+            withCredentials: true
+        })
         return data
         }
       })

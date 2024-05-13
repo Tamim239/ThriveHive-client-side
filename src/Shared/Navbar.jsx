@@ -5,6 +5,7 @@ import { RiMenu2Fill } from "react-icons/ri";
 import job from "../assets/job.png";
 import { useAuth } from "../Hook/useAuth";
 import { Tooltip } from "react-tooltip";
+import axios from "axios";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -26,7 +27,11 @@ export const Navbar = () => {
     }
   };
 
-  const signOut = () => {
+  const signOut = async() => {
+    const { data } = await axios(`${import.meta.env.VITE_API_URL}/logout`, {
+      withCredentials: true,
+    });
+    console.log(data);
     logOut();
   };
 

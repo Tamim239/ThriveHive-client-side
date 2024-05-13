@@ -6,6 +6,7 @@ import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { useState } from "react";
 import { useAuth } from "../../Hook/useAuth";
 import toast from "react-hot-toast";
+import axios from 'axios'
 
 export const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -21,7 +22,15 @@ export const Login = () => {
     console.log(email, password);
     loginUser(email, password)
       .then((res) => {
-        console.log(res);
+        console.log(res.user);
+        const { data } =  axios.post(
+          `${import.meta.env.VITE_API_URL}/jwt`,
+          {
+            email: res?.user?.email,
+          },
+          { withCredentials: true }
+        )
+        console.log(data)
         navigate(location?.state ? location.state :'/')
       })
       .catch(() =>{
@@ -29,10 +38,19 @@ export const Login = () => {
       } );
   };
 
-  const handleGoogleLogin = () =>{
+  const handleGoogleLogin =() =>{
     googleLogin()
     .then((res) =>{
-     console.log(res)
+     console.log(res.user)
+    //  get token from server using email
+     const { data } = axios.post(
+       `${import.meta.env.VITE_API_URL}/jwt`,
+       {
+         email: res?.user?.email,
+       },
+       { withCredentials: true }
+     )
+     console.log(data)
      navigate(location?.state ? location.state :'/')
     })
     .catch(() =>{

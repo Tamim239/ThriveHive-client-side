@@ -2,8 +2,8 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import { useAuth } from '../../Hook/useAuth'
 import { useState } from 'react'
-import axios from 'axios'
 import toast from 'react-hot-toast'
+import { useAxiosSecure } from '../../Hook/useAxiosSecure'
 
 
 export const AddJob = () => {
@@ -35,7 +35,7 @@ export const AddJob = () => {
     }
     console.log(jobData)
 
-    axios.post(`${import.meta.env.VITE_API_URL}/postJobs`, jobData)
+    useAxiosSecure.post(`/postJobs`, jobData)
     .then(data =>{
         console.log(data.data)
         if(data?.data?.insertedId){

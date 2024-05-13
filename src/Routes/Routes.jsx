@@ -37,7 +37,9 @@ export const router = createBrowserRouter([
         {
           path: "/jobDetails/:id",
           element: <PrivateRoute><JobDetails /></PrivateRoute>,
-          loader: ({params}) => axios(`${import.meta.env.VITE_API_URL}/postJobs/${params.id}`)
+          loader: ({params}) => axios(`${import.meta.env.VITE_API_URL}/postJobs/${params.id}`,{
+            withCredentials: true
+          }),
         },
         {
           path: '/blogs',

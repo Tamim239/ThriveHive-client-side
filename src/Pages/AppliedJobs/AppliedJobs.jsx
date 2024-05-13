@@ -1,22 +1,23 @@
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "../../Hook/useAuth";
-import axios from "axios";
 import { InfinitySpin } from "react-loader-spinner";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 export const AppliedJobs = () => {
   const { user } = useAuth();
-  const [jobData, setJobData] = useState();
+  const [jobData, setJobData] = useState([]);
   console.log(user.email);
   const { data, isLoading, isPending } = useQuery({
-    queryKey: ["job", user?.email],
+    queryKey: ["apply", user?.email],
     queryFn: async () => {
-        const { data } = await axios.get(
-            `${import.meta.env.VITE_API_URL}/jobList/${user?.email}`
-            );
-            return (data);
-        },
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/jobList/${user?.email}`,{
+          withCredentials: true
+        })
+            return data;
+        }
     });
+    console.log(data)
     useEffect(()=>{
       setJobData(data)
     },[data])
@@ -45,7 +46,7 @@ export const AppliedJobs = () => {
     )
   }
 
-  console.log(jobData);
+  // console.log(jobData);
   return (
     <div className="px-6 mx-auto">
          <div className="relative w-72 max-w-full mx-auto my-8">

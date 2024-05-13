@@ -1,23 +1,11 @@
 import { useLoaderData } from "react-router-dom";
 import { useAuth } from "../../Hook/useAuth";
 import toast from "react-hot-toast";
-// import { useEffect } from "react";
-import axios from "axios";
+import { useAxiosSecure } from "../../Hook/useAxiosSecure";
 
 export const JobDetails = () => {
   const { user } = useAuth();
   const { data } = useLoaderData();
-  // const navigate = useNavigate();
-
-  console.log(data);
-
-  // useEffect(() => {
-  //   if (!user) {
-  //     navigate("/login");
-  //     // return toast.error("You have to login first");
-  //   }
-  // }, [user, navigate]);
-
   const {
     _id,
     job_title,
@@ -56,8 +44,7 @@ export const JobDetails = () => {
       deadline,
       category, photoURL, min_price, max_price, description
     }
-    console.log(applyData)
-    axios.post(`${import.meta.env.VITE_API_URL}/jobList`, applyData)
+    useAxiosSecure.post(`/jobList`, applyData)
     .then(res=>{
       console.log(res.data)
       if(res?.data?.insertedId){
