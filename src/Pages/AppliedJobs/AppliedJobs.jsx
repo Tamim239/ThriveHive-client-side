@@ -4,6 +4,7 @@ import { InfinitySpin } from "react-loader-spinner";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+
 export const AppliedJobs = () => {
   const { user } = useAuth();
   const [jobData, setJobData] = useState([]);
@@ -46,7 +47,7 @@ export const AppliedJobs = () => {
     )
   }
 
-  // console.log(jobData);
+
   return (
     <div className="px-6 mx-auto">
          <div className="relative w-72 max-w-full mx-auto my-8">
@@ -89,11 +90,11 @@ export const AppliedJobs = () => {
           </time>
           </div>
 
-          <a>
+          <div>
             <h3 className="mt-0.5 text-lg text-gray-900">
              {item?.job_title} ({item?.category})
             </h3>
-          </a>
+          </div>
           <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
             {item?.description}
           </p>
@@ -105,12 +106,11 @@ export const AppliedJobs = () => {
           <span className="">${item?.min_price} - ${item?.max_price}</span> <br /> salary Range 
           </p>
           </div>
-          <div className="border-2 px-2 my-1 text-center">
-            <p>Resume Link : {item?.resume}</p>
-          </div>
         </div>
       </article>)
      }
+    </div>
+    <div>
     </div>
     </div>
   );

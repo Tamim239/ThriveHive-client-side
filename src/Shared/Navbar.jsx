@@ -110,7 +110,7 @@ export const Navbar = () => {
                 </span>
               </Link>
             )}
-             <label className="swap swap-rotate mx-2">
+             <label className="swap swap-rotate mx-2 md:hidden">
               {/* this hidden checkbox controls the state */}
               <input
                 type="checkbox"
