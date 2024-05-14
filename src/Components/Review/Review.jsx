@@ -5,15 +5,15 @@ export const Review = () => {
 
   return (
     <div>
-       <section className="bg-gray-50">
+       <section className="bg-gray-50 dark:bg-[#1A103D]">
   <div className="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8 lg:py-10">
     <div className="md:flex md:items-end md:justify-between">
       <div className="max-w-xl">
-        <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+        <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl dark:text-white">
           Read trusted reviews from our customers
         </h2>
 
-        <p className="mt-6 max-w-lg leading-relaxed text-gray-700">
+        <p className="mt-6 max-w-lg leading-relaxed text-gray-700 dark:text-gray-400">
         "Explore authentic feedback from our valued customers in trusted reviews. Discover firsthand experiences that reflect our commitment to quality, service, and satisfaction. Your opinion matters!"
         </p>
       </div>

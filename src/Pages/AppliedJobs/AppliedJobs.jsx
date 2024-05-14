@@ -3,6 +3,7 @@ import { useAuth } from "../../Hook/useAuth";
 import { InfinitySpin } from "react-loader-spinner";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 
 export const AppliedJobs = () => {
@@ -49,7 +50,10 @@ export const AppliedJobs = () => {
 
 
   return (
-    <div className="px-6 mx-auto">
+    <div className="px-6 mx-auto my-5">
+      <Helmet>
+        <title>THRIVEHIVE || Applied Jobs</title>
+      </Helmet>
          <div className="relative w-72 max-w-full mx-auto my-8">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +84,7 @@ export const AppliedJobs = () => {
           className="h-56 w-full object-cover"
         />
 
-        <div className="bg-white p-4 sm:p-6">
+        <div className="bg-white p-4 sm:p-6 flex-grow">
           <div className="flex items-center justify-between">
           <time  className="block text-xs text-red-500">
             Posted Date : {item?.todayDate}
@@ -107,8 +111,12 @@ export const AppliedJobs = () => {
           </p>
           </div>
         </div>
-      </article>)
-     }
+      <div className="border-2 text-center flex items-center justify-center gap-6">
+           <p>Resume Link : {item?.resume}</p>
+           <button className="btn bg-red-500 text-white">Download</button>
+      </div>
+      </article>
+      )}
     </div>
     <div>
     </div>

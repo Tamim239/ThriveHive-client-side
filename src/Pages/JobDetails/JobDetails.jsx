@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import { useAuth } from "../../Hook/useAuth";
 import toast from "react-hot-toast";
 import { useAxiosSecure } from "../../Hook/useAxiosSecure";
+import { Helmet } from "react-helmet";
 
 export const JobDetails = () => {
   const { user } = useAuth();
@@ -55,6 +56,9 @@ export const JobDetails = () => {
   }
   return (
     <div>
+      <Helmet>
+        <title>THRIVEHIVE || Job Details-{_id}</title>
+      </Helmet>
       <section className="bg-white dark:bg-gray-900">
         <div className="container px-6 py-10 mx-auto">
           <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white">

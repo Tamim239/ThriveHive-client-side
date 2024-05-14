@@ -1,9 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
 
+import { Helmet } from "react-helmet";
+
 export const Blogs = () => {
   return (
-    <div className="px-4 py-8 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-10">
-      <p className="mb-2 text-xs font-semibold tracking-wide text-gray-600 uppercase sm:text-center">
+    <div className="  px-4 py-8 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-10">
+     <Helmet>
+        <title>THRIVEHIVE || Blogs</title>
+      </Helmet>
+      <p className="mb-2 text-xs font-semibold tracking-wide dark:text-white text-gray-600 uppercase sm:text-center">
         10 May 2024
       </p>
       <div className=" mb-5  ">
@@ -11,14 +16,14 @@ export const Blogs = () => {
           <a
             href="/"
             aria-label="Article"
-            className="inline-block sm:text-center font-sans text-3xl font-extrabold leading-none tracking-tight text-black transition-colors duration-200 hover:text-deep-purple-accent-700 sm:text-4xl"
+            className="inline-block dark:text-white sm:text-center font-sans text-3xl font-extrabold leading-none tracking-tight text-black transition-colors duration-200 hover:text-deep-purple-accent-700 sm:text-4xl"
           >
             What is an access token and refresh token? How do they work and
             where should we store them on the client side?
           </a>
         </div>
-        <p className="text-base text-gray-700 md:text-lg">
-          <span className="block font-bold"> Access Token: </span>
+        <p className="text-base text-gray-700 md:text-lg dark:text-white">
+          <span className="block font-bold dark:text-white"> Access Token: </span>
           <li>
             Function: An access token acts like a key that grants temporary
             permission to access specific resources on a server. It's typically
@@ -61,8 +66,8 @@ export const Blogs = () => {
         </p>
       </div>
       {/* second  */}
-      <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-10 lg:px-8">
-        <div className="p-8 rounded shadow-xl sm:p-16">
+      <div className=" mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-10 lg:px-8">
+        <div className=" md:p-8 rounded shadow-xl sm:p-16">
           <div className="flex flex-col lg:flex-row gap-4">
             <div
               className={` mb-6 lg:mb-0 lg:w-1/2 lg:pr-5 flex justify-center items-center bg-yellow-100`}
@@ -72,7 +77,7 @@ export const Blogs = () => {
               </h2>
             </div>
             <div className="lg:w-1/2">
-              <p className="mb-4 text-base text-gray-700">
+              <p className="mb-4 text-base text-gray-700 dark:text-white">
                 <li>
                   <span className="font-semibold">
                     Simplifies Server-Side Development:
@@ -112,8 +117,8 @@ export const Blogs = () => {
         </div>
       </div>
       {/* third  */}
-      <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-10 lg:px-8">
-        <div className="p-8 rounded shadow-xl sm:p-16">
+      <div className="mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-10 lg:px-8">
+        <div className="md:p-8 rounded shadow-xl sm:p-16">
           <div className="flex flex-col lg:flex-row-reverse gap-4">
             <div
               className={` mb-6 lg:mb-0 lg:w-1/2 lg:pr-5 flex justify-center items-center bg-yellow-100`}
@@ -123,7 +128,7 @@ export const Blogs = () => {
               </h2>
             </div>
             <div className="lg:w-1/2">
-              <p className="mb-4 text-base text-gray-700">
+              <p className="mb-4 text-base text-gray-700 dark:text-white">
                 <li>
                   <span className="font-semibold">Modular Architecture:</span>{" "}
                   Inspired by Angular (a popular frontend framework), NestJS
@@ -161,7 +166,7 @@ export const Blogs = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-between items-center gap-6 my-10">
+      <div className="flex max-sm:flex-col justify-between items-center gap-6 my-10">
         <div>
           <h1 className="text-center text-xl font-bold underline">
             Express js Code example

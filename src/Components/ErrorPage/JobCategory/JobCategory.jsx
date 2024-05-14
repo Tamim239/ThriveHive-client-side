@@ -16,14 +16,14 @@ export const JobCategory = () => {
 
 
   return (
-    <div className="my-5 mx-6">
+    <div className="my-5 md:mx-6">
         <div className="mb-5 space-y-3">
-            <h1 className='text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl '>Explore Jobs by Category</h1>
+            <h1 className='text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-gray-400'>Explore Jobs by Category</h1>
             <p className='max-w-2xl mx-auto text-center text-gray-500 '>Discover a variety of jobs across different industries with our convenient browse-by-category feature.</p>
         </div>
       <div className="text-center">
         <Tabs>
-          <TabList>
+          <TabList className="max-sm:text-sm mb-5">
             <Tab>On-Site Job</Tab>
             <Tab>Remote Job</Tab>
             <Tab>Hybrid</Tab>

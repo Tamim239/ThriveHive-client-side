@@ -36,20 +36,20 @@ export const JobCard = ({ job }) => {
             <div className="flex items-center justify-between  gap-5">
               <h1>Posted : {buyer?.name}</h1>
               <h2>{todayDate}</h2>
-            </div>
-            <h3 className="text-xl font-bold text-gray-900 h-12">
+            </div> 
+            <h3 className="text-xl font-bold text-gray-900 h-12 dark:text-white" >
               {job_title} ({category})
             </h3>
           </div>
         </div>
-        <div className="mt-4 flex gap-4 sm:gap-6 justify-between">
-          <div className="flex flex-col-reverse">
-            <dt className="text-sm font-medium text-gray-600">Salary Range</dt>
-            <dd className="text-sm text-gray-800">${min_price} - ${max_price}</dd>
+        <div className="mt-4 flex gap-4 sm:gap-6 justify-between max-sm:mt-8">
+          <div className="flex flex-col">
+            <p className="text-sm text-gray-800 dark:text-white">${min_price} - ${max_price}</p>
+            <p className="text-sm font-medium text-gray-600 ">Salary Range</p>
           </div>
           <div className="flex flex-col-reverse">
-            <dt className="text-sm font-medium text-gray-600">Deadline</dt>
-            <dd className="text-base text-gray-800">{deadline}</dd>
+            <p className="text-sm font-medium text-gray-600">Deadline</p>
+            <p className="text-base text-gray-800 dark:text-white">{deadline}</p>
           </div>
           <div>
             <Link onClick={handleViewDetails} to={`/jobDetails/${_id}`} className="relative inline-flex items-center justify-center p-1 px-3 py-2 overflow-hidden font-medium text-[#F16E1E] transition duration-300 ease-out border-b-2 border-[#F16E1E] rounded-sm shadow-md group">

@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { useAuth } from "../../Hook/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import { InfinitySpin } from "react-loader-spinner";
+import { Helmet } from "react-helmet";
 
 
 export const MyJobs = () => {
@@ -65,12 +66,14 @@ export const MyJobs = () => {
 
   return (
     <div className="my-5">
-        
+        <Helmet>
+        <title>THRIVEHIVE || My Jobs</title>
+      </Helmet>
         <div className="max-w-screen-xl mx-auto px-4 md:px-8">
             <div className="items-start justify-between md:flex">
                 <div className="max-w-lg">
                     <p className="text-gray-600 mt-2">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    If you want to Add More job Press this Add more button.
                     </p>
                 </div>
                 <div className="mt-3 md:mt-0">

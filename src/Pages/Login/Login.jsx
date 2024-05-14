@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useAuth } from "../../Hook/useAuth";
 import toast from "react-hot-toast";
 import axios from 'axios'
+import { Helmet } from "react-helmet";
 
 export const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -71,6 +72,9 @@ export const Login = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>THRIVEHIVE || Login</title>
+      </Helmet>
       <div
         id="page-container"
         className="mx-auto flex min-h-dvh w-full min-w-[320px] flex-col bg-gray-100 dark:bg-gray-900 dark:text-gray-100"

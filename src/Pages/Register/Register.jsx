@@ -6,6 +6,7 @@ import { useState } from 'react'
 import toast from 'react-hot-toast'
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { useAuth } from '../../Hook/useAuth'
+import { Helmet } from 'react-helmet'
 
 export const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -60,6 +61,9 @@ export const Register = () => {
 
   return (
     <section className="bg-white my-5 md:my-10 md:px-4 mx-auto">
+      <Helmet>
+        <title>THRIVEHIVE || Register</title>
+      </Helmet>
   <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
     <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
       <img

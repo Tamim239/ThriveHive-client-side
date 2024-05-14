@@ -42,15 +42,15 @@ export const UpdateJobs = () => {
   return (
     <div>
         <div className='flex justify-center items-center min-h-[calc(100vh-306px)] my-12'>
-      <section className=' p-2 md:p-6 mx-auto bg-white rounded-md shadow-md '>
-        <h2 className='text-lg font-semibold text-gray-700 capitalize '>
+      <section className=' p-2 md:p-6 mx-auto bg-white dark:bg-[#1A103D] rounded-md shadow-md '>
+        <h2 className='text-lg font-semibold text-gray-700 capitalize dark:text-white'>
           Update a Job
         </h2>
 
         <form onSubmit={handleFormUpdate}>
-          <div className='grid grid-cols-1 gap-6 mt-4 sm:grid-cols-4'>
+          <div className='grid grid-cols-1 gap-6 mt-4 sm:grid-cols-4 '>
           <div className='col-span-2'>
-              <label className='text-gray-700 ' htmlFor='Name'>
+              <label className='text-gray-700 dark:text-white' htmlFor='Name'>
                 Name
               </label>
               <input
@@ -63,7 +63,7 @@ export const UpdateJobs = () => {
               />
             </div>
             <div className='col-span-2'>
-              <label className='text-gray-700 ' htmlFor='emailAddress'>
+              <label className='text-gray-700 dark:text-white' htmlFor='emailAddress'>
                 Email Address
               </label>
               <input
@@ -76,7 +76,7 @@ export const UpdateJobs = () => {
               />
             </div>
             <div className='col-span-3'>
-              <label className='text-gray-700 ' htmlFor='photoURL'>
+              <label className='text-gray-700 dark:text-white' htmlFor='photoURL'>
                 PhotoURL
               </label>
               <input
@@ -89,7 +89,7 @@ export const UpdateJobs = () => {
               />
             </div>
             <div>
-              <label className='text-gray-700 ' htmlFor='Today_Date'>
+              <label className='text-gray-700 dark:text-white' htmlFor='Today_Date'>
                 Posting Date
               </label>
               <input
@@ -102,7 +102,7 @@ export const UpdateJobs = () => {
               />
             </div>
             <div className='col-span-1 sm:col-span-2 '>
-              <label className='text-gray-700 ' htmlFor='job_title'>
+              <label className='text-gray-700 dark:text-white' htmlFor='job_title'>
                 Job Title
               </label>
               <input
@@ -116,7 +116,7 @@ export const UpdateJobs = () => {
 
 
             <div className='flex flex-col gap-2 col-span-1'>
-              <label className='text-gray-700'>Deadline</label>
+              <label className='text-gray-700 dark:text-white'>Deadline</label>
               {/* Date Picker Input Field */}
               <DatePicker
                 className='border p-2 rounded-md'
@@ -126,14 +126,14 @@ export const UpdateJobs = () => {
             </div>
 
             <div className='flex flex-col gap-2'>
-              <label className='text-gray-700 ' htmlFor='category'>
+              <label className='text-gray-700 dark:text-white' htmlFor='category'>
                 Category
               </label>
               <select
                 name='category'
                 id='category'
                 defaultValue={data?.category}
-                className='border p-2 rounded-md'
+                className='border p-2 rounded-md dark:text-white'
               >
                 <option value='On Site'>On Site</option>
                 <option value='Remote'>Remote</option>
@@ -142,7 +142,7 @@ export const UpdateJobs = () => {
               </select>
             </div>
             <div className='col-span-1 sm:col-span-2 '>
-              <label className='text-gray-700 ' htmlFor='min_price'>
+              <label className='text-gray-700 dark:text-white' htmlFor='min_price'>
                 Minimum Price
               </label>
               <input
@@ -155,7 +155,7 @@ export const UpdateJobs = () => {
             </div>
 
             <div className='col-span-1 sm:col-span-2 '>
-              <label className='text-gray-700 ' htmlFor='max_price'>
+              <label className='text-gray-700 dark:text-white' htmlFor='max_price'>
                 Maximum Price
               </label>
               <input
@@ -168,7 +168,7 @@ export const UpdateJobs = () => {
             </div>
           </div>
           <div className='flex flex-col gap-2 mt-4'>
-            <label className='text-gray-700 ' htmlFor='description'>
+            <label className='text-gray-700 dark:text-white' htmlFor='description'>
               Description
             </label>
             <textarea
