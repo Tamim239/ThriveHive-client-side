@@ -1,6 +1,6 @@
 
 website name : THRIVEHIVE
-live link : 
+live link : https://thrivehive.netlify.app/
 
 Explore : React-tooltip, Firebase, PropTypes, Hot Toast, React-icons, React-Helmet ,React-Spinner, React Hook Form, jwt, motion, sweetAlert2, Tanstack query etc...
 
