@@ -12,9 +12,7 @@ export const JobCategory = () => {
   width="200"
   color="#4fa94d"
   /></div>
-  console.log(data)
-
-
+  
   return (
     <div className="my-5 md:mx-6">
         <div className="mb-5 space-y-3">

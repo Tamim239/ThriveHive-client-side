@@ -19,25 +19,21 @@ export const AllJob = () => {
     </div>;
   }
   
-  console.log(data);
   const handleSearch = (e) => {
     e.preventDefault();
     const search = e.target.search.value;
     const remaining = data?.filter((item) =>
       item?.job_title?.toLowerCase().includes(search.toLowerCase())
     );
-    console.log(remaining)
     setSearchValue(remaining);
   };
-
-
 
   return (
     <div className="max-w-screen-xl mx-auto px-4 md:px-8">
       <Helmet>
         <title>THRIVEHIVE || All Jobs</title>
       </Helmet>
-      <form onSubmit={handleSearch} className="max-w-md px-4 mx-auto mt-12">
+      <form onSubmit={handleSearch} className="max-w-md px-4 mx-auto mt-12 flex items-center">
         <div className="relative">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +55,8 @@ export const AllJob = () => {
             placeholder="Search by Job Title "
             className="w-full py-3 pl-12 pr-4 text-gray-500 border rounded-md outline-none bg-gray-50 focus:bg-white focus:border-indigo-600"
           />
-        </div>
+         </div>
+        <input type="submit" value="Search" className="btn btn-error text-white"/>
       </form>
       <div className="mt-12 shadow-sm border rounded-lg overflow-x-auto">
         <table className="w-full table-auto text-sm text-left">

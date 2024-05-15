@@ -23,7 +23,6 @@ export const JobDetails = () => {
     }
     const currentDate = new Date().toLocaleDateString();
     const applicantDeadline = new Date(deadline).toLocaleDateString()
-    console.log(currentDate, applicantDeadline)
     if(currentDate > applicantDeadline){
       return toast.error('The Deadline is over')
     }
