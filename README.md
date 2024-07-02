@@ -1,4 +1,34 @@
 
+1. Set Up
+
+```js
+//comment following commands
+Npm i install
+set up MongoDb env in your pc
+Set up env firebase confiq
+```
+
+2. create vercel.json file for configuring server
+
+```json
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "index.js",
+      "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
+    }
+  ]
+}
+```
+
 website name : THRIVEHIVE
 live link : https://thrivehive.netlify.app/
 
